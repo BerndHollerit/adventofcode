@@ -28,12 +28,13 @@ def process_line(line):
 
 try:
     with open(file_path, 'r') as file:
+        result = 0
         for line in file:
             first_digit = find_first_digit(line.strip())
             last_digit = find_last_digit(line.strip())
             combination = concatenate_digits(first_digit, last_digit)
-
-            print(combination)
+            result += combination
+        print(result)
 except FileNotFoundError:
     print(f"File not found: {file_path}")
 except Exception as e:
