@@ -17,6 +17,11 @@ def find_last_digit(line):
     return "No digit found"
 
 
+def concatenate_digits(first_digit, last_digit):
+    concatenated_result = str(first_digit) + str(last_digit)
+    return int(concatenated_result)  # Convert the result back to an integer
+
+
 def process_line(line):
     print(line)
 
@@ -26,9 +31,9 @@ try:
         for line in file:
             first_digit = find_first_digit(line.strip())
             last_digit = find_last_digit(line.strip())
+            combination = concatenate_digits(first_digit, last_digit)
 
-            print(first_digit)
-            print(last_digit)
+            print(combination)
 except FileNotFoundError:
     print(f"File not found: {file_path}")
 except Exception as e:
